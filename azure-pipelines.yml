@@ -1,23 +1,23 @@
 trigger:
   - main
   
-  -variables:
-    vmImageName: 'ubuntu-latest'    
-    azureServiceConnection: 'serviceconnection-iac-devops-test'    
-    location: 'northeurope'    
-    templateFile: './createStorageAccount.bicep'    
-    subscription: '09571fdf-86af-4c4f-809c-6e3a1ae77d9e'
+variables:
+  vmImageName: 'ubuntu-latest'    
+  azureServiceConnection: 'serviceconnection-iac-devops-test'    
+  location: 'northeurope'    
+  templateFile: './createStorageAccount.bicep'    
+  subscription: '09571fdf-86af-4c4f-809c-6e3a1ae77d9e'
   
-  pool:
-    vmImage: $(vmImageName)
+pool:
+  vmImage: $(vmImageName)
   
-  steps:
-  - task: AzureCLI@2
-    inputs:
-      deploymentScope: 'Resource Group'
-      azureSubscription: $(azureServiceConnection)          
-      scriptType: bash
-      scriptLocation: inlineScript
-      inlineScript: |
-        az --version
-        az deployment group create --resource-group testrg --name $(Build.BuildNumber) --location $(location) --template-file $(templateFile)
+steps:
+- task: AzureCLI@2
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureSubscription: $(azureServiceConnection)          
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az --version
+      az deployment group create --resource-group testrg --name $(Build.BuildNumber) --location $(location) --template-file $(templateFile)
