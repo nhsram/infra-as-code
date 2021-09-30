@@ -20,4 +20,4 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
       az --version
-      az deployment group create --resource-group testrg --name $(Build.BuildNumber) --subscription $(subscription) --template-file $(templateFile) --parameters storageAccountName='teststorage'
+      az deployment group create --resource-group testrg --name $(Build.BuildNumber) --subscription $(subscription) --template-file $(templateFile) --parameters storageAccountName='ramteststorage011021'
