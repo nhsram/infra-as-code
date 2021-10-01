@@ -5,7 +5,8 @@ variables:
   vmImageName: 'ubuntu-latest'    
   azureServiceConnection: 'serviceconnection-iac-devops-test'    
   location: 'northeurope'    
-  templateFile: 'createStorageAccount.bicep'    
+  #templateFile: 'createStorageAccount.bicep'
+  templateFile: 'createRhelVM.bicep'   
   subscription: '09571fdf-86af-4c4f-809c-6e3a1ae77d9e'
   
 pool:
@@ -20,4 +21,6 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
       az --version
-      az deployment group create --resource-group testrg --name $(Build.BuildNumber) --subscription $(subscription) --template-file $(templateFile) --parameters storageAccountName='ramteststorage011021'
+     #az deployment group create --resource-group testrg --name $(Build.BuildNumber) --subscription $(subscription) --template-file $(templateFile) --parameters storageAccountName='ramteststorage011021'
+     az deployment group create --resource-group testrg --name $(Build.BuildNumber) --subscription $(subscription) --template-file $(templateFile)
+    
