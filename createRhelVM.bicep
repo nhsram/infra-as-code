@@ -162,7 +162,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-03-01' = {
       imageReference: {
         publisher: 'RedHat'
         offer: 'RHEL'
-        sku: '8'
+        sku: '7'
         version: 'latest'
       }
     }
