@@ -2,7 +2,7 @@
 param vmName string = 'ansibletowervm'
 param adminUsername string = 'testadmin'
 // Type of authentication to use on the Virtual Machine. SSH key is recommended.
-param authenticationType string = 'sshPublicKey'
+param authenticationType string = 'password'
 // SSH Key or password for the Virtual Machine. SSH key is recommended.
 @secure()
 param adminPasswordOrKey string = 'LondonGresham99'
@@ -25,15 +25,7 @@ var osDiskType = 'Standard_LRS'
 var subnetAddressPrefix = '10.5.0.0/24'
 var addressPrefix = '10.5.0.0/16'
 var linuxConfiguration = {
-  disablePasswordAuthentication: true
-  ssh: {
-    publicKeys: [
-      {
-        path: '/home/${adminUsername}/.ssh/authorized_keys'
-        keyData: adminPasswordOrKey
-      }
-    ]
-  }
+  disablePasswordAuthentication: false  
 }
 resource nic 'Microsoft.Network/networkInterfaces@2020-06-01' = {
   name: networkInterfaceName
