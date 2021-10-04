@@ -5,7 +5,7 @@ variables:
   vmImageName: 'ubuntu-latest'    
   azureServiceConnection: 'serviceconnection-iac-devops-test'    
   location: 'northeurope'      
-  templateFile: 'createRhelVM.bicep'   
+  templateFile: 'createKeySecret.bicep'   
   subscription: '09571fdf-86af-4c4f-809c-6e3a1ae77d9e'
   
 pool:
