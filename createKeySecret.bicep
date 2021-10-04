@@ -1,8 +1,7 @@
 param existingKeyVaultName string = 'testkeyvaultram'
 param secretName string = 'superSecretPassword'
 
-@secure()
-param secretValue string 
+param secretValue string ='12345'
 param keyName string = 'testKey'
 
 resource key 'Microsoft.KeyVault/vaults/keys@2019-09-01' = {
