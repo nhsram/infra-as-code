@@ -20,4 +20,5 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
       az --version
-      az resource list --resource-group testrg -n ansibletowervm --query [*].identity.principalId
+      $smi=& az resource list --resource-group testrg -n ansibletowervm --query [*].identity.principalId
+      Write-Output("##vso[task.setvariable variable=systemManagedIdentity;]$smi")
