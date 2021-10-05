@@ -147,7 +147,7 @@ resource publicIP 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
 }
 resource vm 'Microsoft.Compute/virtualMachines@2021-03-01' = {
   name: vmName
-  location: location
+  location: location  
   properties: {
     hardwareProfile: {
       vmSize: vmSize

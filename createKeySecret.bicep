@@ -1,3 +1,4 @@
+//az deployment group create --resource-group testrg --name $(Build.BuildNumber) --subscription $(subscription) --template-file $(templateFile)
 param existingKeyVaultName string = 'testkeyvaultram'
 param secretName string = 'superSecretPassword'
 
