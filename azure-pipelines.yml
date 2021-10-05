@@ -20,5 +20,4 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
       az --version
-      az resource list --name 'ansibletowervm' --resource-group testrg --template-file $(templateFile)
-    
+      az resource list --resource-group testrg --template-file $(templateFile)
